@@ -3,10 +3,10 @@ import './InputBar.css';
 
 const InputBar = () => {
   return (
-    <div className="input-group justify-content-center">
+    <div className="input-group">
       <input type="text" className="form-control" />
       <div className="input-group-append">
-        <button type="button" className="btn btn-success">추가</button>
+        <button type="submit" className="btn btn-success">추가</button>
       </div>
     </div>
   );
