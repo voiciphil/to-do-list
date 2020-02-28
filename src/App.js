@@ -6,6 +6,7 @@ import './App.css';
 const App = () => {
   return (
     <div className="App">
+      <h1>오늘의 할 일</h1>
       <InputBar />
       <List />
     </div>
