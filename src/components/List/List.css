@@ -1,8 +1,8 @@
-.checkbox {
+.List .checkbox {
   margin-left: 1rem !important;
 }
 
-.close {
+.List .close {
   margin-top: 20px;
   margin-right: 1rem;
 }
