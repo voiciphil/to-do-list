@@ -1,16 +1,33 @@
 import React from 'react';
-import './InputBar.css';
+import styled from 'styled-components';
+
+const InputGroup = styled.div`
+  display:flex;
+`;
+
+const Input = styled.input`
+  display: block;
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+  padding: 5px 7px 5px 7px;
+`;
+
+const Button = styled.button`
+  width: 50px;
+  min-height: 30px;
+  padding: 7px;
+  font-size: 16px;
+  color: white;
+  background-color: green;
+`;
 
 const InputBar = () => {
   return (
-    <div className="InputBar">
-      <div className="input-group">
-        <input type="text" className="form-control" />
-        <div className="input-group-append">
-          <button type="submit" className="btn btn-success">추가</button>
-        </div>
-      </div>
-    </div>
+    <InputGroup>
+      <Input />
+      <Button>추가</Button>
+    </InputGroup>
   );
 };
 

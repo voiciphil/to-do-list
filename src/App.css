@@ -4,13 +4,5 @@ body {
 }
 
 .App {
-  justify-content: center;
-  margin-right: 20%;
-  margin-left: 20%;
-  margin-top: 100px;
-}
-
-.App h1 {
-  text-align: center;
-  font-weight: bold;
+  margin: 100px 20% 0 20%;
 }

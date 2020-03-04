@@ -1,25 +1,47 @@
 import React from 'react';
-import './List.css';
+import styled from 'styled-components';
+import { GoX } from "react-icons/go";
+
+const ListGroup = styled.div`
+  display: flex;
+  margin-top: 10px;
+`;
+const Card = styled.div`
+  display: flex;
+  border: 1px solid lightgray;
+  background-color: white;
+  width: 100%;
+  min-height: 50px;
+  align-items: center;
+`;
+
+const CheckBox = styled.input`
+  flex-grow: 1;
+  margin: 10px;
+`;
+
+const Text = styled.div`
+  flex-grow: 10;  
+`;
+
+const DeleteButton = styled.button`
+  margin-right: 10px;
+  font-size: 16px;
+  border: none;
+  color: gray;
+`;
 
 const List = () => {
   return (
-    <div className="List">
-      <div className="card">
-        <div className="row no-gutters">
-          <div className="col-md-1 card-body form-check">
-            <input type="checkbox" className="form-check-input checkbox" />
-          </div>
-          <div className="col-md-10 card-body">
-            asdf
-          </div>
-          <div className="col-md-1 delete">
-            <button type="button" className="close" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ListGroup>
+      <Card>
+        <CheckBox type="checkbox" />
+        <Text>리액트 공부하기</Text>
+        <DeleteButton>
+          <GoX />
+        </DeleteButton>
+      </Card>
+    </ListGroup>
   );
 };
 

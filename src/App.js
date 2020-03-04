@@ -1,12 +1,17 @@
 import React from 'react';
 import { InputBar, List } from './components';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
 import './App.css';
+
+const Title = styled.h1`
+  text-align: center;
+  font-weight: bold;
+`;
 
 const App = () => {
   return (
     <div className="App">
-      <h1>오늘의 할 일</h1>
+      <Title>To Do</Title>
       <InputBar />
       <List />
     </div>
