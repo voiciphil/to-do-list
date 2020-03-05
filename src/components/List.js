@@ -4,6 +4,7 @@ import { GoX } from 'react-icons/go';
 
 const ListGroup = styled.div`
   display: flex;
+  flex-direction: column;
   margin-top: 10px;
 `;
 
@@ -18,11 +19,15 @@ const Card = styled.div`
 
 const CheckBox = styled.input`
   flex-grow: 1;
-  margin: 10px;
+  margin-top: 0;
+  margin-left: 10px;
+  position: fixed;
 `;
 
 const Text = styled.div`
-  flex-grow: 10;  
+  flex-grow: 10;
+  text-align: left;
+  margin-left: 40px;
 `;
 
 const DeleteButton = styled.button`
@@ -32,16 +37,23 @@ const DeleteButton = styled.button`
   color: gray;
 `;
 
-const List = () => {
+const List = ({
+  items,
+  onRemove,
+}) => {
   return (
     <ListGroup>
-      <Card>
-        <CheckBox type="checkbox" />
-        <Text>리액트 공부하기</Text>
-        <DeleteButton>
-          <GoX />
-        </DeleteButton>
-      </Card>
+      {
+        items.map((item) => (
+          <Card key={item.id}>
+            <CheckBox type="checkbox" />
+            <Text>{item.text}</Text>
+            <DeleteButton onClick={() => onRemove(item.id)}>
+              <GoX />
+            </DeleteButton>
+          </Card>
+        ))
+      }
     </ListGroup>
   );
 };

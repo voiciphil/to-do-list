@@ -1,6 +1,6 @@
 import React from 'react';
-import { InputBar, List } from './components';
 import styled from 'styled-components';
+import ToDoListContainer from './containers/ToDoListContainer';
 import './App.css';
 
 const Title = styled.h1`
@@ -12,8 +12,7 @@ const App = () => {
   return (
     <div className="App">
       <Title>To Do</Title>
-      <InputBar />
-      <List />
+      <ToDoListContainer />
     </div>
   );
 };

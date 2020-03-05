@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { GoPlus } from 'react-icons/go';
 
-const InputGroup = styled.div`
+const InputGroup = styled.form`
   display:flex;
 `;
 
@@ -16,21 +16,39 @@ const Input = styled.input`
 
 const Button = styled.button`
   width: 50px;
-  min-height: 30px;
+  min-height: 32px;
   padding: 7px;
   font-size: 16px;
   color: white;
   background-color: green;
+  border-width: 2px;
+  border-color: green;
 `;
 
-const InputBar = () => {
+const InputBar = ({
+  input,
+  onChangeInput,
+  onInsert,
+}) => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onInsert(input);
+    onChangeInput('');
+  };
+
+  const onChange = (e) => {
+    onChangeInput(e.target.value);
+  };
+
   return (
-    <InputGroup>
-      <Input />
-      <Button>
-        <GoPlus />
-      </Button>
-    </InputGroup>
+    <div>
+      <InputGroup onSubmit={onSubmit}>
+        <Input type="text" value={input} onChange={onChange} />
+        <Button>
+          <GoPlus />
+        </Button>
+      </InputGroup>
+    </div>
   );
 };
 
