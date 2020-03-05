@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { GoX } from "react-icons/go";
+import { GoX } from 'react-icons/go';
 
 const ListGroup = styled.div`
   display: flex;
   margin-top: 10px;
 `;
+
 const Card = styled.div`
   display: flex;
   border: 1px solid lightgray;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { GoPlus } from 'react-icons/go';
 
 const InputGroup = styled.div`
   display:flex;
@@ -26,7 +27,9 @@ const InputBar = () => {
   return (
     <InputGroup>
       <Input />
-      <Button>추가</Button>
+      <Button>
+        <GoPlus />
+      </Button>
     </InputGroup>
   );
 };
