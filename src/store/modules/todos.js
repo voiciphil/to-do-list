@@ -1,6 +1,8 @@
 const CHANGE_INPUT = 'CHANGE_INPUT';
 const INSERT = 'INSERT';
 const REMOVE = 'REMOVE';
+const NEXT_PAGE = 'NEXT_PAGE';
+const PREV_PAGE = 'PREV_PAGE';
 
 export const changeInput = (input) => ({
   type: CHANGE_INPUT,
@@ -22,9 +24,18 @@ export const remove = (id) => ({
   id: id,
 });
 
+export const nextPage = () => ({
+  type: NEXT_PAGE,
+});
+
+export const prevPage = () => ({
+  type: PREV_PAGE,
+});
+
 const initialState = {
   input: '',
   items: [],
+  page: 1,
 };
 
 const todos = (state = initialState, action) => {
@@ -43,6 +54,22 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         items: state.items.filter((item) => item.id !== action.id),
+      };
+    case NEXT_PAGE:
+      if (state.page * 8 >= state.items.length) {
+        return state;
+      }
+      return {
+        ...state,
+        page: state.page + 1,
+      };
+    case PREV_PAGE:
+      if (state.page === 1) {
+        return state;
+      }
+      return {
+        ...state,
+        page: state.page - 1,
       };
     default:
       return state;

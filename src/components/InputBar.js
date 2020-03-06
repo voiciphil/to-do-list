@@ -12,6 +12,9 @@ const Input = styled.input`
   height: 30px;
   font-size: 16px;
   padding: 5px 7px 5px 7px;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Button = styled.button`
@@ -23,6 +26,9 @@ const Button = styled.button`
   background-color: green;
   border-width: 2px;
   border-color: green;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const InputBar = ({

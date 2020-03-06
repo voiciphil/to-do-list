@@ -35,25 +35,53 @@ const DeleteButton = styled.button`
   font-size: 16px;
   border: none;
   color: gray;
+  &:focus {
+    outline: none;
+  }
+`;
+
+const PageGroup = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const PageButton = styled.button`
+  margin: 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 16px;
+  color: blue;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const List = ({
   items,
+  page,
   onRemove,
+  onNext,
+  onPrev,
 }) => {
   return (
     <ListGroup>
       {
-        items.map((item) => (
-          <Card key={item.id}>
-            <CheckBox type="checkbox" />
-            <Text>{item.text}</Text>
-            <DeleteButton onClick={() => onRemove(item.id)}>
-              <GoX />
-            </DeleteButton>
-          </Card>
-        ))
+        items
+          .filter((item, index) => (page - 1) * 8 <= index && page * 8 > index)
+          .map((item) => (
+            <Card key={item.id}>
+              <CheckBox type="checkbox" />
+              <Text>{item.text}</Text>
+              <DeleteButton onClick={() => onRemove(item.id)}>
+                <GoX />
+              </DeleteButton>
+            </Card>
+          ))
       }
+      <PageGroup>
+        <PageButton onClick={() => onPrev()}>이전 페이지</PageButton>
+        <PageButton onClick={() => onNext()}>다음 페이지</PageButton>
+      </PageGroup>
     </ListGroup>
   );
 };

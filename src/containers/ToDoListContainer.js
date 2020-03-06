@@ -2,19 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { InputBar, List } from '../components';
-import { changeInput, insert, remove } from '../store/modules/todos';
+import { changeInput, insert, remove, nextPage, prevPage } from '../store/modules/todos';
 
 const ToDoListContainer = ({
   input,
   items,
+  page,
   changeInput,
   insert,
   remove,
+  nextPage,
+  prevPage,
 }) => {
   return (
     <div>
       <InputBar input={input} items={items} onChangeInput={changeInput} onInsert={insert} />
-      <List items={items} onRemove={remove} />
+      <List items={items} page={page} onRemove={remove} onNext={nextPage} onPrev={prevPage} />
     </div>
   );
 };
@@ -23,10 +26,13 @@ export default connect(
   (state) => ({
     input: state.todos.input,
     items: state.todos.items,
+    page: state.todos.page,
   }),
   (dispatch) => bindActionCreators({
     changeInput,
     insert,
     remove,
+    nextPage,
+    prevPage,
   }, dispatch),
 )(ToDoListContainer);
