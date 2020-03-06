@@ -32,8 +32,10 @@ const InputBar = ({
 }) => {
   const onSubmit = (e) => {
     e.preventDefault();
-    onInsert(input);
-    onChangeInput('');
+    if (input !== '') {
+      onInsert(input);
+      onChangeInput('');
+    }
   };
 
   const onChange = (e) => {
