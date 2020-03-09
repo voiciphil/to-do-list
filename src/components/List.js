@@ -30,6 +30,13 @@ const Text = styled.div`
   margin-left: 40px;
 `;
 
+const Done = styled.div`
+  flex-grow: 10;
+  text-align: left;
+  margin-left: 40px;
+  text-decoration: line-through;
+`;
+
 const DeleteButton = styled.button`
   margin-right: 10px;
   font-size: 16px;
@@ -62,6 +69,7 @@ const List = ({
   onRemove,
   onNext,
   onPrev,
+  toggle,
 }) => {
   return (
     <ListGroup>
@@ -70,8 +78,8 @@ const List = ({
           .filter((item, index) => (page - 1) * 8 <= index && page * 8 > index)
           .map((item) => (
             <Card key={item.id}>
-              <CheckBox type="checkbox" />
-              <Text>{item.text}</Text>
+              <CheckBox type="checkbox" defaultChecked={item.done} onChange={() => toggle(item.id)} />
+              {item.done ? <Done>{item.text}</Done> : <Text>{item.text}</Text>}
               <DeleteButton onClick={() => onRemove(item.id)}>
                 <GoX />
               </DeleteButton>

@@ -3,6 +3,7 @@ const INSERT = 'INSERT';
 const REMOVE = 'REMOVE';
 const NEXT_PAGE = 'NEXT_PAGE';
 const PREV_PAGE = 'PREV_PAGE';
+const TOGGLE = 'TOGGLE';
 
 export const changeInput = (input) => ({
   type: CHANGE_INPUT,
@@ -16,6 +17,7 @@ export const insert = (text) => ({
   item: {
     id: todoId += 1,
     text: text,
+    done: false,
   },
 });
 
@@ -30,6 +32,11 @@ export const nextPage = () => ({
 
 export const prevPage = () => ({
   type: PREV_PAGE,
+});
+
+export const toggle = (id) => ({
+  type: TOGGLE,
+  id: id,
 });
 
 const initialState = {
@@ -70,6 +77,19 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         page: state.page - 1,
+      };
+    case TOGGLE:
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (action.id === item.id) {
+            return {
+              ...item,
+              done: !item.done,
+            };
+          }
+          return item;
+        }),
       };
     default:
       return state;
