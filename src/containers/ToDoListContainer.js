@@ -19,8 +19,20 @@ const ToDoListContainer = ({
 }) => {
   return (
     <div>
-      <InputBar input={input} items={items} onChangeInput={changeInput} onInsert={insert} />
-      <List items={items} page={page} onRemove={remove} onNext={nextPage} onPrev={prevPage} toggle={toggle} />
+      <InputBar
+        input={input}
+        items={items}
+        onChangeInput={changeInput}
+        onInsert={insert}
+      />
+      <List
+        items={items}
+        page={page}
+        onRemove={remove}
+        onNext={nextPage}
+        onPrev={prevPage}
+        toggle={toggle}
+      />
     </div>
   );
 };
