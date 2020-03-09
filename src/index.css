@@ -2,11 +2,11 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: NanumSquareRound;
+  font-family: NanumSquareRound serif;
   background-color: #EFEFEF;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Droid Sans Mono for Powerline',
     monospace;
 }
